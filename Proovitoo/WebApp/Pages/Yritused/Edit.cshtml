@@ -1,0 +1,55 @@
+@page
+@model WebApp.Pages.Yritused.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Yritus</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Yritus.Nimi" class="control-label"></label>
+                <input asp-for="Yritus.Nimi" class="form-control" />
+                <span asp-validation-for="Yritus.Nimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yritus.Info" class="control-label"></label>
+                <input asp-for="Yritus.Info" class="form-control" />
+                <span asp-validation-for="Yritus.Info" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yritus.Koht" class="control-label"></label>
+                <input asp-for="Yritus.Koht" class="form-control" />
+                <span asp-validation-for="Yritus.Koht" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yritus.Algus" class="control-label"></label>
+                <input asp-for="Yritus.Algus" class="form-control" />
+                <span asp-validation-for="Yritus.Algus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yritus.KustutamiseKP" class="control-label"></label>
+                <input asp-for="Yritus.KustutamiseKP" class="form-control" />
+                <span asp-validation-for="Yritus.KustutamiseKP" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Yritus.Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

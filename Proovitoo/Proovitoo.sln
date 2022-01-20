@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{CC620591-E130-4207-8192-F949C5458A0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{321E77C9-AD36-4089-946C-5C1866CEB697}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC620591-E130-4207-8192-F949C5458A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC620591-E130-4207-8192-F949C5458A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC620591-E130-4207-8192-F949C5458A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC620591-E130-4207-8192-F949C5458A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

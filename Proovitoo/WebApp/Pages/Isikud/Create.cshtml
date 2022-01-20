@@ -1,0 +1,50 @@
+@page
+@using WebApp.Domain
+@model WebApp.Pages.Isikud.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Isik</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Isik.Tyyp" class="control-label"></label>
+                <select asp-for="Isik.Tyyp" class="form-control" asp-items="Html.GetEnumSelectList<EIsikTyyp>()"></select>
+                <span asp-validation-for="Isik.Tyyp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Isik.Nimi1" class="control-label"></label>
+                <input asp-for="Isik.Nimi1" class="form-control" />
+                <span asp-validation-for="Isik.Nimi1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Isik.Nimi2" class="control-label"></label>
+                <input asp-for="Isik.Nimi2" class="form-control" />
+                <span asp-validation-for="Isik.Nimi2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Isik.Kood" class="control-label"></label>
+                <input asp-for="Isik.Kood" class="form-control" />
+                <span asp-validation-for="Isik.Kood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

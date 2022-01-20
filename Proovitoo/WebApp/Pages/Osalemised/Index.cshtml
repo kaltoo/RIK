@@ -1,0 +1,66 @@
+@page
+@model WebApp.Pages.Osalemised.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Osalemine[0].Isik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osalemine[0].Yritus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osalemine[0].Makseviis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osalemine[0].Lisainfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osalemine[0].OsalejateArv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osalemine[0].KustutamiseKP)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Osalemine) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isik.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yritus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Makseviis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lisainfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OsalejateArv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KustutamiseKP)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
