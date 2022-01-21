@@ -8,49 +8,83 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/WebApp.styles.css" asp-append-version="true"/>
 </head>
+<style>
+    .specfooter{
+        background-color: #303030;
+        color: #d7d7d7;
+   }
+</style>
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">WebApp</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Isikud/Index">Isikud</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Yritused/Index">Yritused</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Osalemised/Index">Osalemised</a>
-                    </li>
-                    
-                </ul>
+<div class="container-lg bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 mt-3 gx-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo.svg" alt="" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">AVALEHT</a>
+                        <a class="nav-link" href="#">ÜRITUSE LISAMINE</a>
+                    </div>
+                </div>
+                <img class="d-none d-lg-block img-fluid" alt="symbol" src="img/symbol.svg"/>
             </div>
-        </div>
-    </nav>
-</header>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
+        </nav>
+    </header>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2022 - WebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
-    </div>
-</footer>
+
+<div class="container-lg">
+    
+    <main role="main">
+        @RenderBody()
+    </main>
+    
+    <footer>
+    <div class="row mt-3 mb-3">
+        <div class="specfooter d-none d-md-block p-4 text-start col">
+            <h3>Curabitur</h3>
+            <ul class="list-unstyled">
+              <li>Emauris</li>
+              <li>Kfringilla</li>
+              <li>Oin magna sem</li>
+              <li>Kelementum</li>
+            </ul>
+        </div>
+        <div class="specfooter text-start d-none d-md-block p-4 col">
+            <h3>Fusce</h3>
+            <ul class="list-unstyled">
+                <li>Econsectetur</li>
+                <li>Ksollicitudin</li>
+                <li>Omvulputate</li>
+                <li>Nunc fringilla tellu</li>
+            </ul>
+        </div>
+        <div class="specfooter p-4 col">
+            <h3>Kontakt</h3>
+            <ul class="list-unstyled">
+                <li>Peakontor: Tallinnas</li>
+                <li>Väike-Ameerika 1, 11415 Tallinn</li>
+                <li>Telefon: 605 4450</li>
+                <li>Faks: 605 3186</li>
+            </ul>
+        </div>
+        <div class="specfooter p-4 col">
+            <h3 style="color: #303030;">Kontakt</h3>
+            <ul class="list-unstyled">
+                <li>Harukontor: Võrus</li>
+                <li>Oja tn 7 (külastusaadress)</li>
+                <li>Telefon: 605 3330</li>
+                <li>Faks: 605 3155</li>
+            </ul>
+        </div>
+            </div>
+    </footer>
+</div>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
