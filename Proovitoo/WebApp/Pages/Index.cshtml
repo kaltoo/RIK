@@ -1,24 +1,32 @@
 ﻿@page
+@using WebApp.Domain
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "NULLAM - Avaleht";
 }
 
-
+@{
+    string GetYrituseKoht(string input)
+    {
+        return string.IsNullOrEmpty(input) ? "Asukoht märkimata" : input;
+    }
+}
+<partial name="Shared/_PartialAlertView" model="Model"/>
 <div class="row">
-    <div class="col-6 customblue pt-3 pb-3">
-        <h6>Custom text and some more</h6>
-        <h6>Custom text and some more</h6>
-        <h6>Custom text and some more</h6>
-        <h6>Custom text and some more</h6>
+    <div class="col-lg-6 customblue pt-3 pb-3 ps-3">
+        <div class="row align-items-center h-100">
+            <div class="col">
+                <h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h4>
+            </div>
+        </div>
+
     </div>
     <div class="col-6 p-0">
-        <img src="img/meeleolu.jpg" alt="" class="img-fluid w-100"/>
+        <img src="img/meeleolu.jpg" alt="" class="img-fluid w-100 d-none d-lg-block"/>
     </div>
 </div>
-
 <div class="row">
-    <div class="col-6 pt-3 pb-3">
+    <div class="col-xxl-6 pt-3 pb-3">
         <div class="row">
             <div class="col pt-3 pb-3 customblue text-center">
                 <h4>Tulevased üritused</h4>
@@ -26,141 +34,75 @@
         </div>
         <div class="row">
             <div class="col bg-light pe-0 pt-2">
-                <div class="menutablesize pe-0">
-                    <table class="table table-borderless mh-100 pe-0">
+                @if (Model.YritusedTulevikus.Count > 0)
+                {
+                    <div class="menutablesize pe-0">
+                    <table class="table-sm table-borderless mh-100 pe-0">
                         <tbody>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwtyjtryjtyjrtyjrtyjrtyjtyjrtyjtyjrtyjrtyjrtyjerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                            <td>wrerwerwe</td>
-                            <td>erwrwrwer</td>
-                        </tr>
-                        
-                     
+                        @foreach (var yr in Model.YritusedTulevikus)
+                        {
+                            <tr>
+                                <td colspan="7"><a style="text-decoration: none; color: #174d94;" asp-page="YrituseDetailid" asp-route-id="@yr.Id"><b>@yr.Nimi</b></a> <p style="font-size: small">(@GetYrituseKoht(yr.Koht))</p></td>
+                                <td colspan="5">@yr.Aeg.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td colspan="3"><a class="link-success" asp-page="OsalejaLisamine" asp-route-yrituseid="@yr.Id">Lisa</a></td>
+                                <td colspan="4"><a class="link-primary" asp-page="YrituseDetailid" asp-route-id="@yr.Id">Osavõtjad (@yr.Osalejaid)</a></td>
+                                <td colspan="2"><a asp-page="YrituseLisamine" asp-route-kustutayritusid="@yr.Id"><img class="removeimage" title="Eemalda üritus" src="img/remove.svg"/></a></td>
+                            </tr>
+                        }
                         </tbody>
                     </table>
                 </div>
+                }
+                else
+                {
+                    <div class="alert alert-secondary mt-2 me-3" role="alert">
+                        Tulevased üritused puuduvad
+                    </div>
+                }
             </div>
         </div>
         <div class="row">
-            <div class="col bg-light pt-2 pb-1 ps-3">
-                <p>Lisa üritus</p>
+            <div class="col bg-light pt-2 pb-2 ps-3">
+                <a asp-page="YrituseLisamine" class="link-dark"><b>LISA ÜRITUS</b></a>
             </div>
         </div>
     </div>
-    <div class="col-6 pt-3 pb-3">
+    <div class="col-xxl-6 pt-3 pb-3">
         <div class="row">
-            <div class="col pt-3 pb-3 ms-3 customblue text-center">
+            <div class="col pt-3 pb-3 ms-xxl-3 customblue text-center">
                 <h4>Toimunud üritused</h4>
             </div>
         </div>
         <div class="row">
-                    <div class="col bg-light pe-0 pt-2">
-                        <div class="menutablesize pe-0">
-                            <table class="table table-borderless mh-100 pe-0">
-                                <tbody>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwtyjtryjtyjrtyjrtyjrtyjtyjrtyjtyjrtyjrtyjrtyjerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-        
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">rewerewrewrewrewrwerwerwerewrwerwf1</td>
-                                    <td>wrerwerwe</td>
-                                    <td>erwrwrwer</td>
-                                </tr>
-                                
-                             
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            <div class="col bg-light pe-0 pt-2">
+                @if (Model.YritusedMinevikus.Count > 0)
+                {
+                
+                <div class="menutablesize pe-0">
+                    <table class="table-sm table-borderless mh-100 pe-0">
+                        <tbody>
+                        @foreach (var yr in Model.YritusedMinevikus)
+                        {
+                            <tr>
+                            <td colspan="9"><a style="text-decoration: none; color: #174d94" asp-page="YrituseDetailid" asp-route-id="@yr.Id"><b>@yr.Nimi</b></a> <p style="font-size: small">(@GetYrituseKoht(yr.Koht))</p></td>
+                                <td colspan="5">@yr.Aeg.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td colspan="4"><a class="link-primary" asp-page="YrituseDetailid" asp-route-id="@yr.Id">Osavõtjad (@yr.Osalejaid)</a></td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
                 </div>
-    </div>
-</div>
-
-<div class="row bg-light">
-    <div class="col">
-        <div class="text-center">
-            <h1 class="display-4">Welcome</h1>
-        
-            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                }
+                else
+                {
+                    <div class="alert alert-secondary mt-2 me-3 ms-1" role="alert">
+                        Toimunud üritused puuduvad
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="row">
         </div>
     </div>
 </div>
+

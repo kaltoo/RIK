@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppTests", "WebAppTests\WebAppTests.csproj", "{7D9B8E42-ABCE-498D-B4B0-C3B8EC52D0D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{CC620591-E130-4207-8192-F949C5458A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC620591-E130-4207-8192-F949C5458A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC620591-E130-4207-8192-F949C5458A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D9B8E42-ABCE-498D-B4B0-C3B8EC52D0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D9B8E42-ABCE-498D-B4B0-C3B8EC52D0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D9B8E42-ABCE-498D-B4B0-C3B8EC52D0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D9B8E42-ABCE-498D-B4B0-C3B8EC52D0D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

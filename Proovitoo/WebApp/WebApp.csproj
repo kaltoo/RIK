@@ -21,4 +21,22 @@
       <Folder Include="wwwroot\img" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Yritused\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Yritused\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Yritused\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Yritused\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Yritused\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Isikud\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Isikud\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Isikud\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Isikud\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Isikud\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Osalemised\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Osalemised\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Osalemised\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Osalemised\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Osalemised\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

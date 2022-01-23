@@ -18,6 +18,11 @@ body {
   background-color: #edf0f2;
 }
 
+.removeimage{
+  max-height: 16px;
+  max-width: 16px;
+}
+
 .customblue {
   background-color: #174d94;
   color: #d7d7d7;
@@ -26,7 +31,6 @@ body {
 .customimage {
   background: url("img/meeleolu.jpg") no-repeat;
   background-size: 100%;
-  
 }
 
 td{

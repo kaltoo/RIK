@@ -1,0 +1,21 @@
+@using System.Xml
+@model WebApp.Pages.Interfaces.IAlertViewCompatible
+
+@if (!string.IsNullOrWhiteSpace(Model!.SuccessMessage))
+{
+    <div class="alert alert-success mt-1 mb-3" role="alert">
+        @Model.SuccessMessage
+    </div>
+}
+@if (!string.IsNullOrWhiteSpace(Model.WarningMessage))
+{
+    <div class="alert alert-warning mt-1 mb-3" role="alert">
+        @Model.WarningMessage
+    </div>
+}
+@if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <div class="alert alert-danger mt-1 mb-3" role="alert">
+        @Model.ErrorMessage
+    </div>
+}
