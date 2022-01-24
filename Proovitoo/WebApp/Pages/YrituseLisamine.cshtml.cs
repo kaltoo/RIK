@@ -36,6 +36,10 @@ public class YrituseLisamine : PageModel, ITitleViewCompatible
             {
                 return RedirectToPage(nameof(Index), new{WarningMessage = "Ürituse kustutamine ebaõnnestus. Ei leitud sellist üritust. ID: " + KustutaYritusId});
             }
+            if (toBeDeleted.Algus < DateTime.Now)
+            {
+                return RedirectToPage(nameof(Index), new{WarningMessage = "Ei saa kustutada juba toimunud üritusi."});
+            }
             else
             {
                 toBeDeleted.KustutamiseKP = DateTime.Now;

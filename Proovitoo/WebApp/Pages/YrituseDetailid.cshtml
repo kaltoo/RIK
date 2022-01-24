@@ -77,7 +77,7 @@
                       </h2>
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                          @Model.Yritus.Info
+                            <p class="text-break">@Model.Yritus.Info</p>
                         </div>
                       </div>
                     </div>
@@ -101,7 +101,7 @@
                                 @foreach (var _osalus in Model.Yritus.Osalemised)
                                 {
                                     <tr>
-                                        <td colspan="7">@GetOsalejaNimiJaArv(_osalus)</td>
+                                        <td colspan="7"><b><a style="text-decoration: none; color: #174d94" asp-page="OsalejaDetailid" asp-route-id="@_osalus.Id">@GetOsalejaNimiJaArv(_osalus)</a></b></td>
                                         <td colspan="5">@_osalus.Isik.Kood</td>
                                         <td colspan="3"><a class="link-primary" asp-page="OsalejaDetailid" asp-route-id="@_osalus.Id">Vaata</a></td>
                                         <td colspan="4"><a class="link-danger" asp-page="YrituseDetailid" asp-route-KustutaOsalejaId="@_osalus.Id">Kustuta</a></td>
@@ -128,8 +128,8 @@
     }
     <div class="mb-3 row justify-content-sm-center">
                     <div class="col col-sm-4">
-                        <a asp-page="Index"><button class="btn btn-secondary col" type="button">Tagasi</button></a>
-                        <a asp-page="OsalejaLisamine" asp-route-YrituseId="@Model.Yritus.Id"><button class="btn btn-success col" @DisabledKuiYrituMinevikus() type="button">Lisa osaleja</button></a>
+                        <a asp-page="Index"><button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button></a>
+                        <a asp-page="OsalejaLisamine" asp-route-YrituseId="@Model.Yritus.Id"><button id="lisaOsalejaButton" class="btn btn-success col" @DisabledKuiYrituMinevikus() type="button">Lisa osaleja</button></a>
                     </div>
                     <div class="col col-sm-4">
                         &nbsp; <p>&nbsp;</p>
