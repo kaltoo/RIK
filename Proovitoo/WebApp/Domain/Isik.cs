@@ -1,8 +1,5 @@
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace WebApp.Domain;
 
@@ -25,9 +22,8 @@ public class Isik : BaseEntity, IValidatableObject
     [Comment("Füüsilise isiku perekonnanimi. Juriidilise isiku puhul väli tühi.")]
     [MaxLength(70, ErrorMessage = "See väli võib olla maksimaalselt 70 märki.")]
     public string? Nimi2 { get; set; }
-    
-    [Comment("Füüsilise isiku isikukood või juriidilise isiku registrikood.")]
 
+    [Comment("Füüsilise isiku isikukood või juriidilise isiku registrikood.")]
     [MaxLength(20, ErrorMessage = "See väli võib olla maksimaalselt 70 märki.")]
     [Required(ErrorMessage = "See väli on kohustuslik.")]
     public string Kood { get; set; } = default!;
@@ -41,53 +37,43 @@ public class Isik : BaseEntity, IValidatableObject
         {
             // Peab koosnema ainult numbritest
             if (!Kood.All(x => char.IsDigit(x)))
-            {
                 yield return new ValidationResult(
-                    $"Registrikood peab koosnema numbritest.",
+                    "Registrikood peab koosnema numbritest.",
                     new[] {nameof(Kood)});
-            }
-            
+
             // Peab olema 8 kohaline
             if (Kood.Length != 8)
-            {
                 yield return new ValidationResult(
-                    $"Registrikood peab olema 8 kohaline.",
+                    "Registrikood peab olema 8 kohaline.",
                     new[] {nameof(Kood)});
-            }
         }
-        
+
         // Füüsilise isiku valideerimine
         if (Tyyp == EIsikTyyp.Fyysiline)
         {
             // Perekonnanimi ole tühi (Andmebaasis nõue puudub)
             if (string.IsNullOrWhiteSpace(Nimi2))
-            {
                 yield return new ValidationResult(
-                    $"See väli on nõutud.",
+                    "See väli on nõutud.",
                     new[] {nameof(Nimi2)});
-            }
-            
+
             // Isikukoodi pikkus 11 märki
             if (Kood.Length != 11)
-            {
                 yield return new ValidationResult(
-                    $"Isikukood peab olema 11 kohaline.",
+                    "Isikukood peab olema 11 kohaline.",
                     new[] {nameof(Kood)});
-            }
 
             // Isikukood koosneb ainult numbritest
             if (!Kood.All(x => char.IsDigit(x)))
-            {
                 yield return new ValidationResult(
-                    $"Isikukood peab koosnema numbritest.",
+                    "Isikukood peab koosnema numbritest.",
                     new[] {nameof(Kood)});
-            }
 
             // Isikukoodi valideerimine
             if (Kood.All(x => char.IsDigit(x)) && Kood.Length == 11)
             {
                 var _kood = Kood.ToCharArray().Select(c => c.ToString()).ToArray();
-                var _year = 1600 + (int.Parse(_kood[0]) * 100);
+                var _year = 1600 + int.Parse(_kood[0]) * 100;
                 _year = _year + int.Parse(_kood[1] + _kood[2]);
                 var _month = int.Parse(_kood[3] + _kood[4]);
                 var _day = int.Parse(_kood[5] + _kood[6]);
@@ -103,13 +89,10 @@ public class Isik : BaseEntity, IValidatableObject
                 }
 
                 if (!_valid)
-                {
                     yield return new ValidationResult(
-                        $"Isikukoodi formaat on vale.",
+                        "Isikukoodi formaat on vale.",
                         new[] {nameof(Kood)});
-                }
             }
         }
-        
     }
 }

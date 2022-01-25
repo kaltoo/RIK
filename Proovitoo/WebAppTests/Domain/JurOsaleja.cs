@@ -10,7 +10,7 @@ public class JurOsaleja : Osaleja
 
     public static JurOsaleja Genereeri()
     {
-        return new JurOsaleja()
+        return new JurOsaleja
         {
             Nimi = Utils.RandomString(20, Utils.RandomMode.LettersOnly),
             Registrikood = Utils.RandomString(8, Utils.RandomMode.NumbersOnly),

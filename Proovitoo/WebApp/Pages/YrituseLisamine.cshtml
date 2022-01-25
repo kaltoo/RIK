@@ -8,49 +8,51 @@
 <partial name="Shared/_PartialTitleView" model="Model"/>
 
 <form method="post">
-<div class="row pt-3 pb-3 bg-light">
-    <div class="mb-3 row justify-content-sm-center">
-        <h5 class="pt-2 pb-2 col-4">Ürituse lisamine</h5>
-        <div class="col-sm-4 d-none d-sm-block">
-            <p>&nbsp;</p>
+    <div class="row pt-3 pb-3 bg-light">
+        <div class="mb-3 row justify-content-sm-center">
+            <h5 class="pt-2 pb-2 col-4">Ürituse lisamine</h5>
+            <div class="col-sm-4 d-none d-sm-block">
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="mb-3 row justify-content-sm-center">
+            <label asp-for="Yritus!.Nimi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Nimi)</label>
+            <div class="col-sm-6">
+                <input asp-for="Yritus!.Nimi" class="form-control">
+            </div>
+            <span asp-validation-for="Yritus!.Nimi" class="text-danger col-sm-8 mt-2"></span>
+        </div>
+        <div class="mb-3 row justify-content-sm-center">
+            <label asp-for="Yritus!.Algus" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Algus)</label>
+            <div class="col-sm-6">
+                <input asp-for="Yritus!.Algus" class="form-control">
+            </div>
+            <span asp-validation-for="Yritus!.Algus" class="text-danger col-sm-8 mt-2"></span>
+        </div>
+        <div class="mb-3 row justify-content-sm-center">
+            <label asp-for="Yritus!.Koht" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Koht)</label>
+            <div class="col-sm-6">
+                <input asp-for="Yritus!.Koht" class="form-control">
+            </div>
+            <span asp-validation-for="Yritus!.Koht" class="text-danger col-sm-8 mt-2"></span>
+        </div>
+        <div class="mb-4 row justify-content-sm-center">
+            <label asp-for="Yritus!.Info" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Info)</label>
+            <div class="col-sm-6">
+                <textarea asp-for="Yritus!.Info" rows="3" class="form-control"></textarea>
+            </div>
+            <span asp-validation-for="Yritus!.Info" class="text-danger col-sm-8 mt-2"></span>
+        </div>
+        <div class="mb-3 row justify-content-sm-center">
+            <div class="col col-sm-4">
+                <a asp-page="Index">
+                    <button id="backToMenuButton" class="btn btn-secondary col" type="button">Tagasi</button>
+                </a>
+                <button id="lisaYritusButton" class="btn btn-success col" type="submit">Lisa</button>
+            </div>
+            <div class="col col-sm-4">
+                &nbsp;
+            </div>
         </div>
     </div>
-    <div class="mb-3 row justify-content-sm-center">
-        <label asp-for="Yritus!.Nimi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Nimi)</label>
-        <div class="col-sm-6">
-            <input asp-for="Yritus!.Nimi" class="form-control">
-        </div>
-        <span asp-validation-for="Yritus!.Nimi" class="text-danger col-sm-8 mt-2"></span>
-    </div>
-    <div class="mb-3 row justify-content-sm-center">
-        <label asp-for="Yritus!.Algus" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Algus)</label>
-        <div class="col-sm-6">
-            <input asp-for="Yritus!.Algus" class="form-control">
-        </div>
-        <span asp-validation-for="Yritus!.Algus" class="text-danger col-sm-8 mt-2"></span>
-    </div>
-    <div class="mb-3 row justify-content-sm-center">
-        <label asp-for="Yritus!.Koht" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Koht)</label>
-        <div class="col-sm-6">
-            <input asp-for="Yritus!.Koht" class="form-control">
-        </div>
-        <span asp-validation-for="Yritus!.Koht" class="text-danger col-sm-8 mt-2"></span>
-    </div>
-    <div class="mb-4 row justify-content-sm-center">
-        <label asp-for="Yritus!.Info" class="col-sm-2 col-form-label">@Html.DisplayNameFor(model => model.Yritus!.Info)</label>
-        <div class="col-sm-6">
-            <textarea asp-for="Yritus!.Info" rows="3" class="form-control"></textarea>
-        </div>
-        <span asp-validation-for="Yritus!.Info" class="text-danger col-sm-8 mt-2"></span>
-    </div>
-    <div class="mb-3 row justify-content-sm-center">
-        <div class="col col-sm-4">
-            <a asp-page="Index"><button id="backToMenuButton" class="btn btn-secondary col" type="button">Tagasi</button></a>
-            <button id="lisaYritusButton" class="btn btn-success col" type="submit">Lisa</button>
-        </div>
-        <div class="col col-sm-4">
-            &nbsp;
-        </div>
-    </div>
-</div>
 </form>

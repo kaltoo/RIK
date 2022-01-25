@@ -5,6 +5,7 @@ public enum EMakseViis
     Sularaha,
     PangaYlekanne
 }
+
 public abstract class Osaleja
 {
     public EMakseViis? Makseviis { get; set; }

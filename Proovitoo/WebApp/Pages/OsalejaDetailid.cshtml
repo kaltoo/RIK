@@ -46,76 +46,78 @@ function ChangeFormsByPersonType(input, resetvalues){
     }
 </script>
 <form method="post">
-        <input asp-for="Osalemine!.Id" hidden="hidden"/>
-        <input asp-for="Osalemine!.IsikId" hidden="hidden"/>
-        <input asp-for="Osalemine!.YritusId" hidden="hidden"/>
+    <input asp-for="Osalemine!.Id" hidden="hidden"/>
+    <input asp-for="Osalemine!.IsikId" hidden="hidden"/>
+    <input asp-for="Osalemine!.YritusId" hidden="hidden"/>
 
-        <div class="row pt-3 pb-3 bg-light">
-            <div class="mb-3 row justify-content-sm-center">
-                <h5 class="pt-2 pb-2 col-4">Osavõtja lisamine</h5>
-                <div class="col-sm-4 d-none d-sm-block">
-                    <p>&nbsp;</p>
-                </div>
-            </div>
-            <div class="mb-3 row justify-content-sm-center">
-                <label asp-for="Osalemine!.Isik.Tyyp" class="col-sm-2 col-form-label">Isiku tüüp</label>
-                <div class="col-sm-6">
-                    <select onchange="ChangeFormsByPersonType(document.getElementById('Osalemine_Isik_Tyyp').value, true)" class="form-select" asp-for="Osalemine!.Isik.Tyyp" asp-items="Html.GetEnumSelectList<EIsikTyyp>()" aria-label="Isik">
-                    </select>
-                </div>
-                <span asp-validation-for="Osalemine!.Isik.Tyyp" class="text-danger col-sm-8 mt-2"></span>
-            </div>
-            <div class="mb-3 row justify-content-sm-center">
-                <label asp-for="Osalemine!.Isik.Nimi1" class="col-sm-2 col-form-label" id="Osalemine_Isik_Nimi1_Label">Eesnimi</label>
-                <div class="col-sm-6">
-                    <input asp-for="Osalemine!.Isik.Nimi1" class="form-control">
-                </div>
-                <span asp-validation-for="Osalemine!.Isik.Nimi1" class="text-danger col-sm-8 mt-2" id="Osalemine_Isik_Nimi1_Error"></span>
-            </div>
-            <div class="mb-3 row justify-content-sm-center" id="Osalemine_Isik_Nimi2_Container">
-                <label asp-for="Osalemine!.Isik.Nimi2" class="col-sm-2 col-form-label" id="Osalemine_Isik_Nimi2_Label">Perekonnanimi</label>
-                <div class="col-sm-6">
-                    <input asp-for="Osalemine!.Isik.Nimi2" class="form-control">
-                </div>
-                <span asp-validation-for="Osalemine!.Isik.Nimi2" class="text-danger col-sm-8 mt-2" id="Osalemine_Isik_Nimi2_Error"></span>
-            </div>
-            <div class="mb-4 row justify-content-sm-center">
-                <label asp-for="Osalemine!.Isik.Kood" class="col-sm-2 col-form-label" id="Osalemine_Isik_Kood_Label">Isikukood</label>
-                <div class="col-sm-6">
-                    <input asp-for="Osalemine!.Isik.Kood" class="form-control">
-                </div>
-                <span asp-validation-for="Osalemine!.Isik.Kood" class="text-danger col-sm-8 mt-2" id="Osalemine_Isik_Kood_Error"></span>
-            </div>
-            <div class="mb-4 row justify-content-sm-center" id="Osalemine_OsalejateArv_Container">
-                <label asp-for="Osalemine!.OsalejateArv" class="col-sm-2 col-form-label">Osalejate arv</label>
-                <div class="col-sm-6">
-                    <input asp-for="Osalemine!.OsalejateArv" class="form-control">
-                </div>
-                <span asp-validation-for="Osalemine!.OsalejateArv" class="text-danger col-sm-8 mt-2" id="Osalemine_OsalejateArv_Error"></span>
-            </div>
-            <div class="mb-4 row justify-content-sm-center">
-                <label asp-for="Osalemine!.Makseviis" class="col-sm-2 col-form-label">Maksmisviis</label>
-                <div class="col-sm-6">
-                    <select class="form-select" asp-for="Osalemine!.Makseviis" asp-items="Html.GetEnumSelectList<EOsalemineMakseviis>()">
-                    </select>
-                </div>
-                <span asp-validation-for="Osalemine!.Makseviis" class="text-danger col-sm-8 mt-2"></span>
-            </div>
-            <div class="mb-4 row justify-content-sm-center">
-                <label asp-for="Osalemine!.Lisainfo" class="col-sm-2 col-form-label">Lisainfo</label>
-                <div class="col-sm-6">
-                    <textarea asp-for="Osalemine!.Lisainfo" rows="3" class="form-control"></textarea>
-                </div>
-                <span asp-validation-for="Osalemine!.Lisainfo" class="text-danger col-sm-8 mt-2"></span>
-            </div>
-            <div class="mb-3 row justify-content-sm-center">
-                <div class="col col-sm-4">
-                    <a asp-page="YrituseDetailid" asp-route-Id="@Model.Osalemine!.YritusId"><button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button></a>
-                    <button id="muudaOsalejaButton" class="btn btn-primary col" type="submit">Muuda</button>
-                </div>
-                <div class="col col-sm-4">
-                    &nbsp;
-                </div>
+    <div class="row pt-3 pb-3 bg-light">
+        <div class="mb-3 row justify-content-sm-center">
+            <h5 class="pt-2 pb-2 col-4">Osavõtja lisamine</h5>
+            <div class="col-sm-4 d-none d-sm-block">
+                <p>&nbsp;</p>
             </div>
         </div>
-    </form>
+        <div class="mb-3 row justify-content-sm-center">
+            <label asp-for="Osalemine!.Isik.Tyyp" class="col-sm-2 col-form-label">Isiku tüüp</label>
+            <div class="col-sm-6">
+                <select onchange="ChangeFormsByPersonType(document.getElementById('Osalemine_Isik_Tyyp').value, true)" class="form-select" asp-for="Osalemine!.Isik.Tyyp" asp-items="Html.GetEnumSelectList<EIsikTyyp>()" aria-label="Isik">
+                </select>
+            </div>
+            <span asp-validation-for="Osalemine!.Isik.Tyyp" class="text-danger col-sm-8 mt-2"></span>
+        </div>
+        <div class="mb-3 row justify-content-sm-center">
+            <label asp-for="Osalemine!.Isik.Nimi1" class="col-sm-2 col-form-label" id="Osalemine_Isik_Nimi1_Label">Eesnimi</label>
+            <div class="col-sm-6">
+                <input asp-for="Osalemine!.Isik.Nimi1" class="form-control">
+            </div>
+            <span asp-validation-for="Osalemine!.Isik.Nimi1" class="text-danger col-sm-8 mt-2" id="Osalemine_Isik_Nimi1_Error"></span>
+        </div>
+        <div class="mb-3 row justify-content-sm-center" id="Osalemine_Isik_Nimi2_Container">
+            <label asp-for="Osalemine!.Isik.Nimi2" class="col-sm-2 col-form-label" id="Osalemine_Isik_Nimi2_Label">Perekonnanimi</label>
+            <div class="col-sm-6">
+                <input asp-for="Osalemine!.Isik.Nimi2" class="form-control">
+            </div>
+            <span asp-validation-for="Osalemine!.Isik.Nimi2" class="text-danger col-sm-8 mt-2" id="Osalemine_Isik_Nimi2_Error"></span>
+        </div>
+        <div class="mb-4 row justify-content-sm-center">
+            <label asp-for="Osalemine!.Isik.Kood" class="col-sm-2 col-form-label" id="Osalemine_Isik_Kood_Label">Isikukood</label>
+            <div class="col-sm-6">
+                <input asp-for="Osalemine!.Isik.Kood" class="form-control">
+            </div>
+            <span asp-validation-for="Osalemine!.Isik.Kood" class="text-danger col-sm-8 mt-2" id="Osalemine_Isik_Kood_Error"></span>
+        </div>
+        <div class="mb-4 row justify-content-sm-center" id="Osalemine_OsalejateArv_Container">
+            <label asp-for="Osalemine!.OsalejateArv" class="col-sm-2 col-form-label">Osalejate arv</label>
+            <div class="col-sm-6">
+                <input asp-for="Osalemine!.OsalejateArv" class="form-control">
+            </div>
+            <span asp-validation-for="Osalemine!.OsalejateArv" class="text-danger col-sm-8 mt-2" id="Osalemine_OsalejateArv_Error"></span>
+        </div>
+        <div class="mb-4 row justify-content-sm-center">
+            <label asp-for="Osalemine!.Makseviis" class="col-sm-2 col-form-label">Maksmisviis</label>
+            <div class="col-sm-6">
+                <select class="form-select" asp-for="Osalemine!.Makseviis" asp-items="Html.GetEnumSelectList<EOsalemineMakseviis>()">
+                </select>
+            </div>
+            <span asp-validation-for="Osalemine!.Makseviis" class="text-danger col-sm-8 mt-2"></span>
+        </div>
+        <div class="mb-4 row justify-content-sm-center">
+            <label asp-for="Osalemine!.Lisainfo" class="col-sm-2 col-form-label">Lisainfo</label>
+            <div class="col-sm-6">
+                <textarea asp-for="Osalemine!.Lisainfo" rows="3" class="form-control"></textarea>
+            </div>
+            <span asp-validation-for="Osalemine!.Lisainfo" class="text-danger col-sm-8 mt-2"></span>
+        </div>
+        <div class="mb-3 row justify-content-sm-center">
+            <div class="col col-sm-4">
+                <a asp-page="YrituseDetailid" asp-route-Id="@Model.Osalemine!.YritusId">
+                    <button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button>
+                </a>
+                <button id="muudaOsalejaButton" class="btn btn-primary col" type="submit">Muuda</button>
+            </div>
+            <div class="col col-sm-4">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+</form>

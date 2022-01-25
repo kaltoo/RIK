@@ -11,7 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connect
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 builder.Services.AddRazorPages().AddMvcOptions(options =>
 {
-    options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor( _ => "See väli on kohustuslik.");
+    options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(_ => "See väli on kohustuslik.");
 });
 
 var app = builder.Build();

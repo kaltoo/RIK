@@ -1,6 +1,7 @@
 namespace WebApp.Pages.Interfaces;
+
 /// <summary>
-/// Võimaldab kasutada _PartiaAlertView vaadet. Vajalik erinevate teadete lehele kuvamiseks.
+///     Võimaldab kasutada _PartiaAlertView vaadet. Vajalik erinevate teadete lehele kuvamiseks.
 /// </summary>
 public interface IAlertViewCompatible
 {

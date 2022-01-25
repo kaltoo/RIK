@@ -47,7 +47,7 @@ function ChangeFormsByPersonType(input, resetvalues){
 
 <form method="post">
     <input hidden="hidden" asp-for="Osalemine!.YritusId" value="@Model.YrituseId"/>
-    
+
     <div class="row pt-3 pb-3 bg-light">
         <div class="mb-3 row justify-content-sm-center">
             <h5 class="pt-2 pb-2 col-4">Osavõtja lisamine</h5>
@@ -108,7 +108,9 @@ function ChangeFormsByPersonType(input, resetvalues){
         </div>
         <div class="mb-3 row justify-content-sm-center">
             <div class="col col-sm-4">
-                <a asp-page="Index"><button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button></a>
+                <a asp-page="Index">
+                    <button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button>
+                </a>
                 <button id="lisaOsalejaButton" class="btn btn-success col" type="submit">Lisa</button>
             </div>
             <div class="col col-sm-4">

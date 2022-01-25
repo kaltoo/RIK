@@ -7,7 +7,7 @@
 }
 
 @{
-    
+
     // Üritusel osaleva isiku andmete kuvamiseks
     string GetOsalejaNimiJaArv(Osalemine osalemine)
     {
@@ -21,8 +21,8 @@
         }
 
         throw new ApplicationException("GetOsalejaNimi funktsioon sai EIsikTyyp väärtuseks tundmatu enumi.");
-    }    
-    
+    }
+
     // Ürituse puudumise korral placeholder
     string GetYrituseKoht(string input)
     {
@@ -69,19 +69,19 @@
         <div class="mb-4 row justify-content-sm-center">
             <div class="col-sm-8">
                 <div class="accordion" id="accordionExample">
-                   <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Lisainfo
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="text-break">@Model.Yritus.Info</p>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Lisainfo
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="text-break">@Model.Yritus.Info</p>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                        </div>
+                </div>
             </div>
         </div>
     }
@@ -101,10 +101,18 @@
                                 @foreach (var _osalus in Model.Yritus.Osalemised)
                                 {
                                     <tr>
-                                        <td colspan="7"><b><a style="text-decoration: none; color: #174d94" asp-page="OsalejaDetailid" asp-route-id="@_osalus.Id">@GetOsalejaNimiJaArv(_osalus)</a></b></td>
+                                        <td colspan="7">
+                                            <b>
+                                                <a style="text-decoration: none; color: #174d94" asp-page="OsalejaDetailid" asp-route-id="@_osalus.Id">@GetOsalejaNimiJaArv(_osalus)</a>
+                                            </b>
+                                        </td>
                                         <td colspan="5">@_osalus.Isik.Kood</td>
-                                        <td colspan="3"><a class="link-primary" asp-page="OsalejaDetailid" asp-route-id="@_osalus.Id">Vaata</a></td>
-                                        <td colspan="4"><a class="link-danger" asp-page="YrituseDetailid" asp-route-KustutaOsalejaId="@_osalus.Id">Kustuta</a></td>
+                                        <td colspan="3">
+                                            <a class="link-primary" asp-page="OsalejaDetailid" asp-route-id="@_osalus.Id">Vaata</a>
+                                        </td>
+                                        <td colspan="4">
+                                            <a class="link-danger" asp-page="YrituseDetailid" asp-route-KustutaOsalejaId="@_osalus.Id">Kustuta</a>
+                                        </td>
                                     </tr>
                                 }
                             }
@@ -113,26 +121,31 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     }
     else
     {
         <div class="mb-2 row justify-content-sm-center">
             <div class="col-sm-8">
-                    <div class="alert alert-warning" role="alert">
-                      Üritusel puuduvad osalejad
-                    </div>
+                <div class="alert alert-warning" role="alert">
+                    Üritusel puuduvad osalejad
                 </div>
             </div>
+        </div>
     }
     <div class="mb-3 row justify-content-sm-center">
-                    <div class="col col-sm-4">
-                        <a asp-page="Index"><button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button></a>
-                        <a asp-page="OsalejaLisamine" asp-route-YrituseId="@Model.Yritus.Id"><button id="lisaOsalejaButton" class="btn btn-success col" @DisabledKuiYrituMinevikus() type="button">Lisa osaleja</button></a>
-                    </div>
-                    <div class="col col-sm-4">
-                        &nbsp; <p>&nbsp;</p>
-                    </div>
-                </div>
+        <div class="col col-sm-4">
+            <a asp-page="Index">
+                <button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button>
+            </a>
+            <a asp-page="OsalejaLisamine" asp-route-YrituseId="@Model.Yritus.Id">
+                <button id="lisaOsalejaButton" class="btn btn-success col" @DisabledKuiYrituMinevikus() type="button">Lisa osaleja</button>
+            </a>
+        </div>
+        <div class="col col-sm-4">
+            &nbsp;
+            <p>&nbsp;</p>
+        </div>
+    </div>
 </div>

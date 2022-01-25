@@ -1,5 +1,4 @@
 ﻿@page
-@using WebApp.Domain
 @model IndexModel
 @{
     ViewData["Title"] = "NULLAM - Avaleht";
@@ -37,21 +36,34 @@
                 @if (Model.YritusedTulevikus.Count > 0)
                 {
                     <div class="menutablesize pe-0">
-                    <table class="table-sm table-borderless mh-100 pe-0">
-                        <tbody>
-                        @foreach (var yr in Model.YritusedTulevikus)
-                        {
-                            <tr>
-                                <td colspan="7"><a style="text-decoration: none; color: #174d94;" asp-page="YrituseDetailid" asp-route-id="@yr.Id"><b>@yr.Nimi</b></a> <p style="font-size: small">(@GetYrituseKoht(yr.Koht))</p></td>
-                                <td colspan="5">@yr.Aeg.ToString("dd.MM.yyyy HH:mm")</td>
-                                <td colspan="3"><a class="link-success" asp-page="OsalejaLisamine" asp-route-yrituseid="@yr.Id">Lisa</a></td>
-                                <td colspan="4"><a class="link-primary" asp-page="YrituseDetailid" asp-route-id="@yr.Id">Osavõtjad (@yr.Osalejaid)</a></td>
-                                <td colspan="2"><a asp-page="YrituseLisamine" asp-route-kustutayritusid="@yr.Id"><img class="removeimage" title="Eemalda üritus" src="img/remove.svg"/></a></td>
-                            </tr>
-                        }
-                        </tbody>
-                    </table>
-                </div>
+                        <table class="table-sm table-borderless mh-100 pe-0">
+                            <tbody>
+                            @foreach (var yr in Model.YritusedTulevikus)
+                            {
+                                <tr>
+                                    <td colspan="7">
+                                        <a style="text-decoration: none; color: #174d94;" asp-page="YrituseDetailid" asp-route-id="@yr.Id">
+                                            <b>@yr.Nimi</b>
+                                        </a>
+                                        <p style="font-size: small">(@GetYrituseKoht(yr.Koht))</p>
+                                    </td>
+                                    <td colspan="5">@yr.Aeg.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td colspan="3">
+                                        <a style="text-decoration: none; font-weight: bold" class="link-success" asp-page="OsalejaLisamine" asp-route-yrituseid="@yr.Id">Lisa</a>
+                                    </td>
+                                    <td colspan="4">
+                                        <a style="text-decoration: none" class="link-primary" asp-page="YrituseDetailid" asp-route-id="@yr.Id">Osavõtjad (@yr.Osalejaid)</a>
+                                    </td>
+                                    <td colspan="2">
+                                        <a asp-page="YrituseLisamine" asp-route-kustutayritusid="@yr.Id">
+                                            <img class="removeimage" title="Eemalda üritus" src="img/remove.svg"/>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
                 }
                 else
                 {
@@ -63,7 +75,9 @@
         </div>
         <div class="row">
             <div class="col bg-light pt-2 pb-2 ps-3">
-                <a asp-page="YrituseLisamine" class="link-dark"><b>LISA ÜRITUS</b></a>
+                <a asp-page="YrituseLisamine" class="link-dark">
+                    <b>LISA ÜRITUS</b>
+                </a>
             </div>
         </div>
     </div>
@@ -77,21 +91,27 @@
             <div class="col bg-light pe-0 pt-2">
                 @if (Model.YritusedMinevikus.Count > 0)
                 {
-                
-                <div class="menutablesize pe-0">
-                    <table class="table-sm table-borderless mh-100 pe-0">
-                        <tbody>
-                        @foreach (var yr in Model.YritusedMinevikus)
-                        {
-                            <tr>
-                            <td colspan="9"><a style="text-decoration: none; color: #174d94" asp-page="YrituseDetailid" asp-route-id="@yr.Id"><b>@yr.Nimi</b></a> <p style="font-size: small">(@GetYrituseKoht(yr.Koht))</p></td>
-                                <td colspan="5">@yr.Aeg.ToString("dd.MM.yyyy HH:mm")</td>
-                                <td colspan="4"><a class="link-primary" asp-page="YrituseDetailid" asp-route-id="@yr.Id">Osavõtjad (@yr.Osalejaid)</a></td>
-                            </tr>
-                        }
-                        </tbody>
-                    </table>
-                </div>
+                    <div class="menutablesize pe-0">
+                        <table class="table-sm table-borderless mh-100 pe-0">
+                            <tbody>
+                            @foreach (var yr in Model.YritusedMinevikus)
+                            {
+                                <tr>
+                                    <td colspan="9">
+                                        <a style="text-decoration: none; color: #174d94" asp-page="YrituseDetailid" asp-route-id="@yr.Id">
+                                            <b>@yr.Nimi</b>
+                                        </a>
+                                        <p style="font-size: small">(@GetYrituseKoht(yr.Koht))</p>
+                                    </td>
+                                    <td colspan="5">@yr.Aeg.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td colspan="4">
+                                        <a style="text-decoration: none" class="link-primary" asp-page="YrituseDetailid" asp-route-id="@yr.Id">Osavõtjad (@yr.Osalejaid)</a>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
                 }
                 else
                 {
@@ -105,4 +125,3 @@
         </div>
     </div>
 </div>
-

@@ -13,8 +13,9 @@ public class Kontrolli
         Tulevased,
         Toimunud
     }
-    
-    public static bool YritusKorrektseteAndmetegaAsubAvalehel(Yritus yritus, IWebDriver driver, EYrituseTyyp tyyp, int osalejaid)
+
+    public static bool YritusKorrektseteAndmetegaAsubAvalehel(Yritus yritus, IWebDriver driver, EYrituseTyyp tyyp,
+        int osalejaid)
     {
         switch (tyyp)
         {
@@ -27,7 +28,7 @@ public class Kontrolli
                             .Text
                             .ToLower()
                             .Contains(yritus.Nimi!.ToLower()));
-                
+
                 if (_temp == null) return false;
 
                 var _containsRightDateTime = _temp.Text
@@ -41,21 +42,20 @@ public class Kontrolli
                 var _containsKoht = true;
 
                 if (yritus.Koht != null)
-                {
                     _containsKoht = _temp.Text
                         .ToLower()
                         .Contains(yritus.Koht.ToLower());
-                }
 
-                return (_containsRightDateTime && _containsOsalejad && _containsKoht);
+                return _containsRightDateTime && _containsOsalejad && _containsKoht;
             }
-               
+
             case EYrituseTyyp.Toimunud:
                 return driver.FindElement(By.Id("ToimunudYritusedDiv"))
                     .Text
                     .ToLower()
                     .Contains(yritus.Nimi!.ToLower());
         }
+
         return false;
     }
 
@@ -67,16 +67,14 @@ public class Kontrolli
                     .Text
                     .ToLower()
                     .Contains(fysOsaleja.Eesnimi!.ToLower()));
-                
+
         if (_temp == null) return false;
 
-        if (_temp.Text.ToLower().Contains(fysOsaleja.Isikukood!.ToLower()))
-        {
-            return true;
-        }
-        
+        if (_temp.Text.ToLower().Contains(fysOsaleja.Isikukood!.ToLower())) return true;
+
         return false;
     }
+
     public static bool OsalejaEksisteeribLehelKorrektseteAndmetega(JurOsaleja jurOsaleja, IWebDriver driver)
     {
         var _temp =
@@ -85,15 +83,13 @@ public class Kontrolli
                     .Text
                     .ToLower()
                     .Contains(jurOsaleja.Nimi!.ToLower()));
-                
+
         if (_temp == null) return false;
 
         if (_temp.Text.ToLower().Contains(jurOsaleja.Registrikood!.ToLower())
             && _temp.Text.ToLower().Contains($"[Osaleb: {jurOsaleja.OsalejateArv.ToString()}]".ToLower()))
-        {
             return true;
-        }
-        
+
         return false;
     }
 }

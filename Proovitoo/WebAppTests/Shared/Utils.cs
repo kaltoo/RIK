@@ -13,7 +13,9 @@ public class Utils
         LettersOnly,
         NumbersOnly
     }
-    private static Random random = new Random();
+
+    private static readonly Random random = new();
+
     public static string RandomString(int length, RandomMode mode)
     {
         string chars;
@@ -32,7 +34,7 @@ public class Utils
             default:
                 throw new InvalidDataException();
         }
-        
+
         return new string(Enumerable.Repeat(chars, length)
             .Select(s => s[random.Next(s.Length)]).ToArray());
     }

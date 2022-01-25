@@ -8,7 +8,7 @@ public class FysOsaleja : Osaleja
 
     public static FysOsaleja Genereeri()
     {
-        return new FysOsaleja()
+        return new FysOsaleja
         {
             Eesnimi = Utils.RandomString(20, Utils.RandomMode.LettersOnly),
             Perekonnanimi = Utils.RandomString(20, Utils.RandomMode.LettersOnly),

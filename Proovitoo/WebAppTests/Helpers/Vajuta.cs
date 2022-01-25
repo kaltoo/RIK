@@ -1,6 +1,5 @@
 using System.Linq;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using WebAppTests.Domain;
 using WebAppTests.Domain.Shared;
 
@@ -20,6 +19,7 @@ public class Vajuta
         OSAVOTJAD_TAGASI,
         OSAVOTJAD_LISA
     }
+
     public enum EYrituseTyyp
     {
         Tulevased,
@@ -31,7 +31,7 @@ public class Vajuta
         switch (nupp)
         {
             case ENupp.AVALEHT_LISAYRITUS:
-               driver.FindElement(By.PartialLinkText("LISA ÜRITUS")).Click();
+                driver.FindElement(By.PartialLinkText("LISA ÜRITUS")).Click();
                 break;
             case ENupp.LISAYRITUS_LISA:
                 driver.FindElement(By.Id("lisaYritusButton")).Click();
@@ -61,6 +61,7 @@ public class Vajuta
     }
 
     #region YrituseToimingud
+
     public static void VajutaAvaleheYrituseLinki(Yritus yritus, EYrituseTyyp tyyp, IWebDriver driver)
     {
         switch (tyyp)
@@ -95,8 +96,11 @@ public class Vajuta
             ?.FindElement(By.ClassName("removeimage"))
             .Click();
     }
+
     #endregion
+
     #region OsalejaMuutmine
+
     public static void VajutaOsalejateLeheOsalejaMuutmiseLinki(FysOsaleja fysOsaleja, IWebDriver driver)
     {
         VajutaOsalejateLeheOsalejaMuutmiseLinki(fysOsaleja.Eesnimi + " " + fysOsaleja.Perekonnanimi, driver);
@@ -111,8 +115,11 @@ public class Vajuta
     {
         driver.FindElement(By.PartialLinkText(nimi)).Click();
     }
+
     #endregion
+
     #region OsalejaKustutamine
+
     public static void VajutaOsalejateLeheOsalejaKustutamiseLinki(FysOsaleja fysOsaleja, IWebDriver driver)
     {
         VajutaOsalejateLeheOsalejaKustutamiseLinki(fysOsaleja.Eesnimi + " " + fysOsaleja.Perekonnanimi, driver);
@@ -130,7 +137,6 @@ public class Vajuta
             ?.FirstOrDefault(x => x.Text.ToLower().Contains(nimi.ToLower()))
             ?.FindElement(By.PartialLinkText("Kustuta")).Click();
     }
+
     #endregion
-
-
-    }
+}

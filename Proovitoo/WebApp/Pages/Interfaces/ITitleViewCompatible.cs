@@ -1,7 +1,7 @@
 namespace WebApp.Pages.Interfaces;
 
 /// <summary>
-/// Võimaldab kasutada _PartialTitleView vaadet. Vajalik kujunduselemendi kuvamiseks.
+///     Võimaldab kasutada _PartialTitleView vaadet. Vajalik kujunduselemendi kuvamiseks.
 /// </summary>
 public interface ITitleViewCompatible
 {
