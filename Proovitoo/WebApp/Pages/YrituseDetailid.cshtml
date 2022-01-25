@@ -136,10 +136,10 @@
     }
     <div class="mb-3 row justify-content-sm-center">
         <div class="col col-sm-4">
-            <a asp-page="Index">
+            <a style="text-decoration: none" asp-page="Index">
                 <button id="tagasiButton" class="btn btn-secondary col" type="button">Tagasi</button>
             </a>
-            <a asp-page="OsalejaLisamine" asp-route-YrituseId="@Model.Yritus.Id">
+            <a style="text-decoration: none" asp-page="OsalejaLisamine" asp-route-YrituseId="@Model.Yritus.Id">
                 <button id="lisaOsalejaButton" class="btn btn-success col" @DisabledKuiYrituMinevikus() type="button">Lisa osaleja</button>
             </a>
         </div>

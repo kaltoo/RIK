@@ -65,3 +65,7 @@ enimkasutatavatele DBMS süsteemidele.
 ## Automaattestid
 
 Testid asuvad WebAppTests projektis.
+
+
+Parimat  
+Kalev
